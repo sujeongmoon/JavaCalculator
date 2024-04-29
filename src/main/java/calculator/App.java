@@ -41,7 +41,8 @@ public class App {
             System.out.println("저장된 데이터들을 새로 재설정하시겠습니까? (set 입력 시 재설정)");
             String sizeSet = sc.next();
             if (sizeSet.equals("set")) {
-                calculator.setResultArrayList(new ArrayList<Double>());//저장된 데이터 개수 확인
+                calculator.setResultArrayList(new ArrayList<Double>());//재설정
+                System.out.println("저장된 데이터가 재설정되었습니다.");
             }
 
             // 삭제 물어보기
@@ -52,15 +53,12 @@ public class App {
                 System.out.println("가장 먼저 저장된 연산 결과가 삭제됐습니다.");
             }
 
-/*            // 조회 물어보기
+            // 연산 결과 조회 물어보기
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             String inquiryResult = sc.next();
             if (inquiryResult.equals("inquiry")) {
-                for (double rsArrList : calculator.resultArrayList) {
-                    System.out.print(rsArrList + " ");
-                }
-                System.out.println();
-            }*/
+                calculator.inquiryResultArrayList();
+            }
 
             // 더 계산 물어보기
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
