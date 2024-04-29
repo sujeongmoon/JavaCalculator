@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Calculator {
     // 연산 결과를 저장하는 컬렉션 타입 필드
-    ArrayList<Double> resultArrayList = new ArrayList<Double>();
+    private ArrayList<Double> resultArrayList = new ArrayList<Double>();
 
 
     // 연산기능을 수행한 후 결과값을 반환하는 메서드, 예외처리
@@ -30,4 +30,15 @@ public class Calculator {
         this.resultArrayList.add(result); //값 추가
         return result;
     }
+
+    //결과값 배열리스트 가져오기
+    public ArrayList<Double> getResultArrayList(){
+        return this.resultArrayList;
+    }
+
+    //결과값 배열리스트 수정하기
+    public void setResultArrayList(ArrayList<Double> resultArrayList){
+        this.resultArrayList = resultArrayList;
+    }
+
 }
