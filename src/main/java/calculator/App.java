@@ -1,20 +1,18 @@
 package calculator;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        /* int[] resultArray = new int[10]; //결과를 담는 배열
-        int resultIndex = 0; //resultArray 인덱스 */
-        ArrayList<Integer> resultArrList = new ArrayList<Integer>(); // 결과를 담는 배열리스트
-        int result = 0; //계산결과
+        int[] resultArray = new int[4]; //결과를 담는 배열
+        int resultIndex = 0; //resultArray 인덱스
+        int result = 0;
 
 
         Scanner sc = new Scanner(System.in);
 
         while(true) {
-            System.out.println(resultArrList.size()+1 +"번째 입력입니다.");
+            System.out.println(resultIndex+1 +"번째 입력입니다.");
 
             System.out.print("첫 번째 숫자를 입력하세요: ");
             // Scanner를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장합니다.
@@ -49,7 +47,7 @@ public class App {
                 return;
             }
 
-/*            //만약 현재 인덱스가 10 이상이라면 배열을 한칸씩 다 앞으로 밀어서 자리 확보
+            //만약 현재 인덱스가 10 이상이라면 배열을 한칸씩 다 앞으로 밀어서 자리 확보
             if (resultIndex >= resultArray.length){
                 for (int i = 0; i < resultArray.length-2; i++){
                     resultArray[i] = resultArray[i+1];
@@ -60,36 +58,15 @@ public class App {
             else{
                 //연산결과 출력 및 배열에 저장
                 resultArray[resultIndex] = result;
-            }*/
-
+            }
+            resultIndex++;
             System.out.println("result = " + result);
 
-            //컬렉션에 값 저장
-            resultArrList.add(result); //값 추가
-            /*resultIndex++; -> size()로 대체 가능*/
 
-            // 삭제 물어보기
-            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
-            String removeResult = sc.next();
-            if (removeResult.equals("remove")){
-                resultArrList.removeFirst(); //첫 번째 요소 삭제
-                System.out.println("가장 먼저 저장된 연산 결과가 삭제됐습니다.");
-            }
-
-            // 조회 물어보기
-            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
-            String inquiryResult = sc.next();
-            if (inquiryResult.equals("inquiry")){
-                for (int rsArrList : resultArrList) {
-                    System.out.print(rsArrList + " ");
-                }
-                System.out.println();
-            }
-
-            // 더 계산 물어보기
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-            String exitResult = sc.next();
-            if (exitResult.equals("exit")){
+            /* exit을 입력 받으면 반복 종료 */
+            String whileExit = sc.next();
+            if (whileExit.equals("exit")){
                 return;
             }
 
