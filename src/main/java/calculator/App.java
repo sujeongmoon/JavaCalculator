@@ -1,18 +1,14 @@
 package calculator;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        ArrayList<Integer> resultArrList = new ArrayList<Integer>(); // 결과를 담는 배열리스트
-        int result = 0; //계산결과
-
+        Calculator calculator = new Calculator(); // Calculator instance 생성
 
         Scanner sc = new Scanner(System.in);
 
         while(true) {
-            System.out.println(resultArrList.size()+1 +"번째 입력입니다.");
+/*            System.out.println(resultArrList.size()+1 +"번째 입력입니다.");*/
 
             System.out.print("첫 번째 숫자를 입력하세요: ");
             // Scanner를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장합니다.
@@ -26,38 +22,17 @@ public class App {
             // next()로 String으로 받고, charAt(0)으로 문자열->문자 변환 (한글자니 인덱스 0 고정)
             char operator = sc.next().charAt(0);
 
-            /*입력받은 값으로 계산하기*/
-            if (operator == '+') {
-                result = num1 + num2;
-            } else if (operator == '-') {
-                result = num1 - num2;
-            } else if (operator == '*') {
-                result = num1 * num2;
-            } else if (operator == '/') {
-                // 분모가 0인 경우 return
-                if (num2 == 0) {
-                    System.out.println("나눗셈에서 분모는 0일 수 없습니다.");
-                    return;
-                }
-                result = num1 / num2;
+            try{
+                System.out.println(calculator.calculate(num1, num2, operator));
+            } catch(BadInputException e){
+                System.out.println(e.getMessage());
             }
-            //연산자 잘못 입력한 경우 return
-            else {
-                System.out.println("연산자를 잘못 입력하였습니다.");
-                return;
-            }
-
-            System.out.println("result = " + result);
-
-            //컬렉션에 값 저장
-            resultArrList.add(result); //값 추가
-            /*resultIndex++; -> size()로 대체 가능*/
 
             // 삭제 물어보기
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             String removeResult = sc.next();
             if (removeResult.equals("remove")){
-                resultArrList.removeFirst(); //첫 번째 요소 삭제
+                calculator.resultArrayList.removeFirst(); //첫 번째 요소 삭제
                 System.out.println("가장 먼저 저장된 연산 결과가 삭제됐습니다.");
             }
 
@@ -65,7 +40,7 @@ public class App {
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             String inquiryResult = sc.next();
             if (inquiryResult.equals("inquiry")){
-                for (int rsArrList : resultArrList) {
+                for (double rsArrList : calculator.resultArrayList) {
                     System.out.print(rsArrList + " ");
                 }
                 System.out.println();
