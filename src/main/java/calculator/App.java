@@ -31,7 +31,7 @@ public class App {
             }
 
             //  가져오기
-            System.out.println("저장된 데이터의 개수를 확인하시겠습니까? (size 입력 시 다시보기)");
+            System.out.println("저장된 데이터의 개수를 확인하시겠습니까? (size 입력 시 개수확인)");
             String sizeResult = sc.next();
             if (sizeResult.equals("size")) {
                 System.out.println(calculator.getResultArrayList().size());//저장된 데이터 개수 확인
@@ -44,13 +44,13 @@ public class App {
                 calculator.setResultArrayList(new ArrayList<Double>());//저장된 데이터 개수 확인
             }
 
-/*            // 삭제 물어보기
+            // 삭제 물어보기
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             String removeResult = sc.next();
             if (removeResult.equals("remove")) {
-                calculator.resultArrayList.removeFirst(); //첫 번째 요소 삭제
+                calculator.rmFirstResultArrayList(); //첫 번째 요소 삭제
                 System.out.println("가장 먼저 저장된 연산 결과가 삭제됐습니다.");
-            }*/
+            }
 
 /*            // 조회 물어보기
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");

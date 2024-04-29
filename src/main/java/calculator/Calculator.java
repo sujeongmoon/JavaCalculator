@@ -40,5 +40,9 @@ public class Calculator {
     public void setResultArrayList(ArrayList<Double> resultArrayList){
         this.resultArrayList = resultArrayList;
     }
+    // 가장 먼저 저장된 연산 결과를 삭제
+    public void rmFirstResultArrayList(){
+        this.resultArrayList.removeFirst();
+    }
 
 }
