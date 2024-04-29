@@ -4,6 +4,11 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+        int[] resultArray = new int[10]; //결과를 담는 배열
+        int resultIndex = 0; //resultArray 인덱스
+        int result = 0;
+
+
         Scanner sc = new Scanner(System.in);
 
         while(true) {
@@ -21,7 +26,6 @@ public class App {
             char operator = sc.next().charAt(0);
 
             /*입력받은 값으로 계산하기*/
-            int result = 0;
             if (operator == '+') {
                 result = num1 + num2;
             } else if (operator == '-') {
@@ -41,6 +45,10 @@ public class App {
                 System.out.println("연산자를 잘못 입력하였습니다.");
                 return;
             }
+
+            //연산결과 출력 및 배열에 저장
+            resultArray[resultIndex] = result;
+            resultIndex++;
             System.out.println("result = " + result);
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
