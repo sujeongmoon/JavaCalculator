@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        int[] resultArray = new int[10]; //결과를 담는 배열
+        int[] resultArray = new int[4]; //결과를 담는 배열
         int resultIndex = 0; //resultArray 인덱스
         int result = 0;
 
@@ -12,6 +12,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
 
         while(true) {
+            System.out.println(resultIndex+1 +"번째 입력입니다.");
 
             System.out.print("첫 번째 숫자를 입력하세요: ");
             // Scanner를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장합니다.
@@ -46,10 +47,21 @@ public class App {
                 return;
             }
 
-            //연산결과 출력 및 배열에 저장
-            resultArray[resultIndex] = result;
+            //만약 현재 인덱스가 10 이상이라면 배열을 한칸씩 다 앞으로 밀어서 자리 확보
+            if (resultIndex >= resultArray.length){
+                for (int i = 0; i < resultArray.length-2; i++){
+                    resultArray[i] = resultArray[i+1];
+                }
+                resultArray[resultArray.length-1] = result;
+                System.out.println("한칸씩밀기~");
+            }
+            else{
+                //연산결과 출력 및 배열에 저장
+                resultArray[resultIndex] = result;
+            }
             resultIndex++;
             System.out.println("result = " + result);
+
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             /* exit을 입력 받으면 반복 종료 */
