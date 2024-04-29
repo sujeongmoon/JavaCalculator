@@ -68,16 +68,28 @@ public class App {
             resultArrList.add(result); //값 추가
             /*resultIndex++; -> size()로 대체 가능*/
 
-            // 삭제, 더 계산 여부 물어보기
+            // 삭제 물어보기
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
-            String deleteResult = sc.next();
-            if (deleteResult.equals("remove")){
+            String removeResult = sc.next();
+            if (removeResult.equals("remove")){
                 resultArrList.removeFirst(); //첫 번째 요소 삭제
                 System.out.println("가장 먼저 저장된 연산 결과가 삭제됐습니다.");
             }
+
+            // 조회 물어보기
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            String inquiryResult = sc.next();
+            if (inquiryResult.equals("inquiry")){
+                for (int rsArrList : resultArrList) {
+                    System.out.print(rsArrList + " ");
+                }
+                System.out.println();
+            }
+
+            // 더 계산 물어보기
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-            String whileExit = sc.next();
-            if (whileExit.equals("exit")){
+            String exitResult = sc.next();
+            if (exitResult.equals("exit")){
                 return;
             }
 
