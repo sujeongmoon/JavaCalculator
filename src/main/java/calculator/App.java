@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        int[] resultArray = new int[4]; //결과를 담는 배열
+        int[] resultArray = new int[10]; //결과를 담는 배열
         int resultIndex = 0; //resultArray 인덱스
         int result = 0;
 
