@@ -12,23 +12,27 @@ public class ArithmeticCalculator extends Calculator {
     @Override
     public double calculate(int num1, int num2, char operator) throws BadInputException {
         double result;
+        OperatorType operatorType;
 
         if (operator == '+') {
-            result = new AddOperator().operate(num1, num2);
+            operatorType = OperatorType.ADD; // 입력받은 연산자 따라 operatorType 설정해주기
         } else if (operator == '-') {
-            result = new SubtractOperator().operate(num1, num2);
+            operatorType = OperatorType.SUB;
         } else if (operator == '*') {
-            result = new MultiplyOperator().operate(num1, num2);
+            operatorType = OperatorType.MUL;
         } else if (operator == '/') {
             if (num2 == 0) {
                 throw new BadInputException("분모 0");
             }
-            result = new DivideOperator().operate(num1, num2);
+            operatorType = OperatorType.DIV;
         } else if (operator == '%') {
-            result = new ModOperator().operate(num1, num2);
+            operatorType = OperatorType.MOD;
         }else {
             throw new BadInputException("연산자 입력오류"); // 연산자가 안 들어온 경우 예외처리
         }
+
+        // 설정된 operatorType에 따라서 연산 -> 문제의 요구사항이 이게 맞는지 의문..
+        result = operatorType.operatorTypeCal(num1, num2, operatorType);
 
         /* return 연산 결과 */
         this.resultArray.add(result); //값 추가
