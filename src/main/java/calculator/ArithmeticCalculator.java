@@ -14,16 +14,16 @@ public class ArithmeticCalculator extends Calculator {
         double result = 0;
 
         if (operator == '+') {
-            result = num1 + num2;
+            result = new AddOperator().operate(num1, num2);
         } else if (operator == '-') {
-            result = num1 - num2;
+            result = new SubtractOperator().operate(num1, num2);
         } else if (operator == '*') {
-            result = num1 * num2;
+            result = new MultiplyOperator().operate(num1, num2);
         } else if (operator == '/') {
             if (num2 == 0) {
                 throw new BadInputException("분모 0");
             }
-            result = (double) num1 / num2;
+            result = new DivideOperator().operate(num1, num2);
         } else {
             throw new BadInputException("연산자 입력오류"); // 연산자가 안 들어온 경우 예외처리
         }
@@ -33,11 +33,4 @@ public class ArithmeticCalculator extends Calculator {
         return result;
     }
 
-/*    @Override
-    public void inquiryResultArray() {
-        for (double rsArrList : this.resultArray) {
-            System.out.print(rsArrList + " ");
-        }
-        System.out.println();
-    }*/
 }

@@ -15,13 +15,4 @@ public class CircleCalculator extends Calculator{
         return result;
     }
 
-/*    @Override
-    public void inquiryResultArray() {
-        for (double rsArrList : this.resultArray) {
-            System.out.print(rsArrList + " ");
-        }
-        System.out.println();
-    }*/
-
-
 }
