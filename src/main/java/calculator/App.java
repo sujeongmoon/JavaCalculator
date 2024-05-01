@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
-        Calculator calculator; // Calculator instance 생성
+        Calculator<Double> calculator; // Calculator instance 생성
         //미리 만들어두고, 경우에 따라 바꿔끼기
-        Calculator arithmenticCalculator = new ArithmeticCalculator();
-        Calculator circleCalculator = new CircleCalculator();
+        Calculator<Double> arithmenticCalculator = new ArithmeticCalculator();
+        Calculator<Double> circleCalculator = new CircleCalculator();
 
         Scanner sc = new Scanner(System.in);
 
@@ -25,11 +25,11 @@ public class App {
 
                 System.out.print("첫 번째 숫자를 입력하세요: ");
                 // Scanner를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장합니다.
-                int num1 = sc.nextInt();
+                double num1 = sc.nextDouble();
 
                 System.out.print("두 번째 숫자를 입력하세요: ");
                 // Scanner를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장합니다.
-                int num2 = sc.nextInt();
+                double num2 = sc.nextDouble();
 
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 // next()로 String으로 받고, charAt(0)으로 문자열->문자 변환 (한글자니 인덱스 0 고정)
@@ -52,7 +52,7 @@ public class App {
                 System.out.println("저장된 데이터들을 새로 재설정하시겠습니까? (set 입력 시 재설정)");
                 String sizeSet = sc.next();
                 if (sizeSet.equals("set")) {
-                    calculator.setResultArray(new ArrayList<Double>());//재설정
+                    calculator.setResultArray(new ArrayList<>());//재설정
                     System.out.println("저장된 데이터가 재설정되었습니다.");
                 }
 
@@ -75,7 +75,7 @@ public class App {
                 calculator = circleCalculator; // 원 넓이 구하는 인스턴스로 설정
                 System.out.println("원의 넓이 구하기를 선택하셨습니다.");
                 System.out.println("넓이를 구할 원의 반지름을 입력해주세요.");
-                int r = sc.nextInt(); //반지름
+                double r = sc.nextDouble(); //반지름
                 try {
                     calculator.calculate(r, r, '*');
                 } //의미없는 try catch...
