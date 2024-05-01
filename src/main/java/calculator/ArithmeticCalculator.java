@@ -39,4 +39,6 @@ public class ArithmeticCalculator <T extends Number> extends Calculator <T> {
         return result;
     }
 
+
+
 }

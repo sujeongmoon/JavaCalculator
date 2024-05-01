@@ -70,6 +70,16 @@ public class App {
                 if (inquiryResult.equals("inquiry")) {
                     calculator.inquiryResultArray();
                 }
+
+                // 저장된 연산 결과들 중 Scanner로 입력받은 값보다 큰 결과값 을 출력하고 싶은지 물어보기
+                System.out.println("저장된 연산 결과들 중 Scanner로 입력받은 값보다 큰 결과값들을 출력하시겠습니까? (compare 입력 시 값 입력 및 결과 출력)");
+                String compareResult = sc.next();
+                if (compareResult.equals("compare")) {
+                    System.out.println("기준이 될 값을 입력해주세요. 기준값보다 큰 결과값들을 출력합니다.");
+                    double compareNum = sc.nextDouble();
+                    calculator.compareScanner(compareNum);
+                }
+
             } else if (choice == 2) { // 원의 넓이 구하기
 
                 calculator = circleCalculator; // 원 넓이 구하는 인스턴스로 설정
